@@ -6,7 +6,7 @@ RUN git clone https://github.com/shasha617/spring-petclinic-mm.git && \
 
 FROM openjdk:25-ea-17-jdk as run 
 
-RUN adduser -d -h /usr/share/demo  testuser
+RUN useradd -m -d /usr/share/demo -s /bin/bash testuser
 USER testuser
 WORKDIR /usr/share/demo
 COPY --from=build /spring-petclinic-mm/target/*.jar .
