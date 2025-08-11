@@ -8,7 +8,7 @@ FROM openjdk:25-ea-17-jdk as run
 RUN  adduser -D -h /usr/share/demo -s /bin/bash testuser
 USER testuser
 WORKDIR /usr/share/demo
-COPY --from=build /target/*.jar .
+COPY --from=build /spring-petclinic-mm/target/*.jar .
 EXPOSE 8080/tcp
-CMD ["java","-jar","*.jar"]
+CMD ["java","-jar","spring-petclinic-3.5.0-SNAPSHOT.jar"]
 
