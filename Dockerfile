@@ -1,11 +1,11 @@
 FROM maven:3.9.11-eclipse-temurin-17-alpine as build
-RUN apk add --no-cache git  
+RUN apk add   
 RUN git clone https://github.com/shasha617/spring-petclinic-mm.git && \
     cd spring-petclinic-mm && \
     mvn package
 
 FROM openjdk:25-ea-17-jdk as run 
-RUN apk add --no-cache bash
+
 RUN adduser -d -h /usr/share/demo  testuser
 USER testuser
 WORKDIR /usr/share/demo
